@@ -71,11 +71,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)Vendor\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)CUDA Acellerator;$(SolutionDir)Vendor\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Vendor\lib_w32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)Vendor\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)CUDA Acellerator;$(SolutionDir)Vendor\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Vendor\lib_w32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -177,6 +177,11 @@
   <ItemGroup>
     <None Include="composer.ini" />
     <None Include="Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CUDA Acellerator\CUDA Acellerator.vcxproj">
+      <Project>{e6d54f51-69c0-4b1b-b4a9-b5abe891e5d3}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
