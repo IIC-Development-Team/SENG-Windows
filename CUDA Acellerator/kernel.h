@@ -15,17 +15,5 @@
 
 namespace EXT_CUDA
 {
-	namespace GEO_CUDA
-	{
-		struct TempMeshData
-		{
-			std::vector<glm::vec3> verticies;
-			std::vector<glm::vec2> uv;
-			std::vector<unsigned int> indices;
-		};
-	}
-
 	bool CUDA_EXP IsCudaCapable();
-
-	bool CUDA_EXP LoadMultipleMeshes(aiMesh** aMeshes, size_t size, std::vector<GEO_CUDA::TempMeshData>& outData);
 }

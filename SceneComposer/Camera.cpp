@@ -3,7 +3,7 @@
 
 void Camera::RegenerateMatrices()
 {
-	IsCudaCapable();
+	EXT_CUDA::IsCudaCapable();
 
 	mProjection = glm::perspective(glm::radians(45.0f),
 		(float)1280/720,
