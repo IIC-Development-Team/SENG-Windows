@@ -35,7 +35,6 @@ namespace EXT_CUDA
 				outData[t].indices.push_back(face.mIndices[j]);
 			}
 		}
-
 	}
 
 	bool IsCudaCapable()
