@@ -10,12 +10,41 @@ Scene* pUsedScene = new Scene();
 
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 {
-	if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS)
-	{
-		double x, y;
-		glfwGetCursorPos(window, &x, &y);
-		glm::vec3 ret = pgfx->RayCastMouse(x, y, window);
 
+}
+
+void DrawSceneManager()
+{
+	std::string scenename = "Current scene: " + pUsedScene->GetPath();
+
+	if (ImGui::Begin("Scene Manager"))
+	{
+		if (ImGui::CollapsingHeader("Found scenes"))
+		{
+			for (const auto& entry : fs::directory_iterator("./"))
+			{
+				std::string f = entry.path().string();
+				if (f[f.length() - 1] == 'f')
+					if (ImGui::CollapsingHeader(f.c_str()))
+					{
+						ImGui::Button("Load", ImVec2(40, 20));
+						ImGui::SameLine();
+						ImGui::Button("Validate", ImVec2(70, 20));
+					}
+			}
+		}
+		if (ImGui::CollapsingHeader(scenename.c_str()))
+		{
+			if (ImGui::Button("Reload", ImVec2(60, 20)))
+			{
+				pUsedScene->ReloadScene();
+			}
+			ImGui::SameLine();
+			ImGui::Button("Save", ImVec2(40, 20));
+			ImGui::SameLine();
+			ImGui::Button("Save as", ImVec2(60, 20));
+		}
+		ImGui::End();
 	}
 }
 
@@ -45,7 +74,7 @@ int main(int argc, char** argv)
 
 	while (true)
 	{
-		std::string scenename = "Current scene: " + pUsedScene->GetPath();
+		
 
 		if (window.UpdateWindow())
 			break;
@@ -57,35 +86,8 @@ int main(int argc, char** argv)
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
 
-		if (ImGui::Begin("Scene Manager"))
-		{
-			if (ImGui::CollapsingHeader("Found scenes"))
-			{
-				for (const auto& entry : fs::directory_iterator("./"))
-				{
-					std::string f = entry.path().string();
-					if(f[f.length() - 1] == 'f')
-						if(ImGui::CollapsingHeader(f.c_str()))
-						{
-							ImGui::Button("Load", ImVec2(40, 20));
-							ImGui::SameLine();
-							ImGui::Button("Validate", ImVec2(70, 20));
-						}
-				}
-			}
-			if (ImGui::CollapsingHeader(scenename.c_str()))
-			{
-				if(ImGui::Button("Reload", ImVec2(60, 20)))
-				{
-					pUsedScene->ReloadScene();
-				}
-				ImGui::SameLine();
-				ImGui::Button("Save", ImVec2(40, 20));
-				ImGui::SameLine();
-				ImGui::Button("Save as", ImVec2(60, 20));
-			}
-			ImGui::End();
-		}
+		DrawSceneManager();
+		pUsedScene->DrawComponentList();
 
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

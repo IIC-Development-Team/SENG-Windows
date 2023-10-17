@@ -258,7 +258,7 @@ void Scene::UnloadScene()
 void Scene::ReloadScene()
 {
 	UnloadScene();
-	LoadScene(scene_path);
+	LoadScene(GetPath());
 }
 
 void Scene::DrawScene(Graphics* pgfx)

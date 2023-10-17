@@ -1,8 +1,8 @@
 #Model,pos x,pos y,pos z,
 #! -> section symbol
 !GEOMETRY
-Assets/cube.fbx,1.0,1.0,1.0,
-Assets/cube.fbx,1.0,1.0,3.0,
+Assets/cube.fbx,0.0,0.0,0.0,
+Assets/cube.fbx,1.0,1.0,4.0,
 #Pos x, pos y, pos z
 !CAMERA
 -5.0,-5.0,-5.0,
@@ -11,5 +11,5 @@ Assets/cube.fbx,1.0,1.0,3.0,
 Assets/TransformShader.vert,Assets/TextureShader.frag,0,
 Assets/TransformShader.vert,Assets/TextureShader.frag,1,
 !TEX
-Assets/col1.jpg,0,
-Assets/col2.jpg,1,
+Assets/col2.jpg,0,
+Assets/col1.jpg,1,

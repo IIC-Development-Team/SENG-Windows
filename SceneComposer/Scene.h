@@ -12,7 +12,7 @@ public:
 	void UnloadScene();
 	void ReloadScene();
 	void DrawScene(Graphics* pgfx);
-	void CheckForCollision(glm::vec3 hit_point);
+	void DrawComponentList();
 	inline std::string GetPath() const noexcept { return scene_path; }
 
 private:
