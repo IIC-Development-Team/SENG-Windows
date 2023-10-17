@@ -4,6 +4,21 @@
 #include "Scene.h"
 #include <filesystem>
 namespace fs = std::filesystem;
+Window window(1280, 720, "Scene Composer 1");
+Graphics* pgfx = new Graphics();
+Scene* pUsedScene = new Scene();
+
+void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
+{
+	if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS)
+	{
+		double x, y;
+		glfwGetCursorPos(window, &x, &y);
+		glm::vec3 ret = pgfx->RayCastMouse(x, y, window);
+
+	}
+}
+
 
 int main(int argc, char** argv)
 {
@@ -13,8 +28,10 @@ int main(int argc, char** argv)
 	LOG_F(INFO, "Scene Composer v1.0 by IIC Development team");
 	LOG_F(INFO, "Using loguru by Emilk");
 
-	Window window(1280, 720, "Scene Composer 1");
-	Graphics* pgfx = new Graphics();
+	if (glfwRawMouseMotionSupported())
+		glfwSetInputMode(window.GetWindowPointer(), GLFW_RAW_MOUSE_MOTION, GLFW_TRUE);
+
+	glfwSetMouseButtonCallback(window.GetWindowPointer(), mouse_button_callback);
 
 	IMGUI_CHECKVERSION();
 	ImGui::CreateContext();
@@ -24,9 +41,7 @@ int main(int argc, char** argv)
 	ImGui_ImplGlfw_InitForOpenGL(window.GetWindowPointer(), true);
 	ImGui_ImplOpenGL3_Init();
 
-	Scene* pUsedScene = new Scene();
 	pUsedScene->LoadScene("TestScene.ssf");
-
 
 	while (true)
 	{
@@ -37,7 +52,6 @@ int main(int argc, char** argv)
 		pgfx->OnSceneStart();
 		//Start rendering scene
 		pUsedScene->DrawScene(pgfx);
-
 		//Start rendering GUI
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui_ImplGlfw_NewFrame();
@@ -61,7 +75,10 @@ int main(int argc, char** argv)
 			}
 			if (ImGui::CollapsingHeader(scenename.c_str()))
 			{
-				ImGui::Button("Reload", ImVec2(60, 20));
+				if(ImGui::Button("Reload", ImVec2(60, 20)))
+				{
+					pUsedScene->ReloadScene();
+				}
 				ImGui::SameLine();
 				ImGui::Button("Save", ImVec2(40, 20));
 				ImGui::SameLine();

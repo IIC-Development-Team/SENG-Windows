@@ -69,6 +69,9 @@
     <ClCompile Include="loguru.cpp">
       <Filter>Pliki źródłowe\vendor</Filter>
     </ClCompile>
+    <ClCompile Include="PickingTexture.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -115,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="loguru.hpp">
       <Filter>Pliki nagłówkowe\vendor</Filter>
+    </ClInclude>
+    <ClInclude Include="PickingTexture.h">
+      <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

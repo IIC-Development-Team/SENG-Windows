@@ -16,4 +16,6 @@
 namespace EXT_CUDA
 {
 	bool CUDA_EXP IsCudaCapable();
+
+
 }

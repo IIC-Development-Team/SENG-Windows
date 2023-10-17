@@ -221,6 +221,7 @@
     <ClCompile Include="imgui\imgui_widgets.cpp" />
     <ClCompile Include="loguru.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PickingTexture.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
@@ -239,6 +240,7 @@
     <ClInclude Include="imgui\imstb_textedit.h" />
     <ClInclude Include="imgui\imstb_truetype.h" />
     <ClInclude Include="loguru.hpp" />
+    <ClInclude Include="PickingTexture.h" />
     <ClInclude Include="Scene.h" />
   </ItemGroup>
   <ItemGroup>

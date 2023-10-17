@@ -86,6 +86,7 @@
 		void OnSetCamera(Camera camera);
 		static void OnMeshLoad(std::string file, Mesh& mesh);
 		static void OnLoadTexture(Texture& texture);
+		glm::vec3 RayCastMouse(double mouse_x, double mouse_y, GLFWwindow* pwnd);
 
 		static void ProcessNode(aiNode* node, const aiScene* scene, Mesh& mesh);
 		static void ProcessMesh(aiMesh* pMesh, const aiScene* scene, Mesh& mesh);

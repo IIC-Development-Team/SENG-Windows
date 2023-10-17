@@ -10,7 +10,9 @@ public:
 
 	void LoadScene(std::string file);
 	void UnloadScene();
+	void ReloadScene();
 	void DrawScene(Graphics* pgfx);
+	void CheckForCollision(glm::vec3 hit_point);
 	inline std::string GetPath() const noexcept { return scene_path; }
 
 private:

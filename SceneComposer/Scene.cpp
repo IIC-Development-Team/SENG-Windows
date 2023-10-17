@@ -255,6 +255,12 @@ void Scene::UnloadScene()
 	mAssets.clear();
 }
 
+void Scene::ReloadScene()
+{
+	UnloadScene();
+	LoadScene(scene_path);
+}
+
 void Scene::DrawScene(Graphics* pgfx)
 {
 	pgfx->OnSetCamera(mSceneCamera);
@@ -265,3 +271,4 @@ void Scene::DrawScene(Graphics* pgfx)
 		pgfx->OnMeshDraw(mAssets[i]);
 	}
 }
+
