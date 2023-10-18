@@ -1,10 +1,7 @@
 #include "Camera.h"
-#include <kernel.h>
 
 void Camera::RegenerateMatrices()
 {
-	EXT_CUDA::IsCudaCapable();
-
 	mProjection = glm::perspective(glm::radians(45.0f),
 		(float)1280/720,
 		0.1f, 100.0f);

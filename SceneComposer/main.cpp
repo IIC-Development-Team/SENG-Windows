@@ -45,6 +45,7 @@ int main(int argc, char** argv)
 
 		DrawSceneManager(pUsedScene);
 
+
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 		pgfx->OnSceneEnd(window.GetWindowPointer());
