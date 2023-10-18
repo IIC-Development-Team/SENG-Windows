@@ -248,11 +248,6 @@
     <None Include="composer.ini" />
     <None Include="Window.h" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CUDA Acellerator\CUDA Acellerator.vcxproj">
-      <Project>{e6d54f51-69c0-4b1b-b4a9-b5abe891e5d3}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
