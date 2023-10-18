@@ -66,8 +66,6 @@ namespace SENG {
 		Material mMat;
 	};
 
-	
-
 #pragma endregion
 
 #pragma region CLASS

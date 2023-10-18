@@ -11,8 +11,9 @@ public:
 	void LoadScene(std::string file);
 	void UnloadScene();
 	void ReloadScene();
+	bool ValidateScene(std::string file);
 	void DrawScene(Graphics* pgfx);
-	void DrawComponentList();
+	bool CheckDependency(std::string path);
 	inline std::string GetPath() const noexcept { return scene_path; }
 
 private:

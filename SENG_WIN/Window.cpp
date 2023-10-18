@@ -2,11 +2,6 @@
 #include "Window.h"
 #include "Exception.h"
 
-void InputCallback()
-{
-
-}
-
 void GLAPIENTRY
 MessageCallback(GLenum source,
 	GLenum type,
@@ -16,6 +11,7 @@ MessageCallback(GLenum source,
 	const GLchar* message,
 	const void* userParam)
 {
+	if(type == GL_DEBUG_TYPE_ERROR)
 	fprintf(stderr, "GL CALLBACK: %s type = 0x%x, severity = 0x%x, message = %s\n",
 		(type == GL_DEBUG_TYPE_ERROR ? "** GL ERROR **" : ""),
 		type, severity, message);
